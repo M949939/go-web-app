@@ -113,3 +113,6 @@ curl -H "Host: go-web-app.local" http://<AWS-ELB-ADDRESS>/courses
 ---
 
 ✅ At this point, the Go Web App is deployed on EKS, accessible through NGINX Ingress with Helm, and managed by ArgoCD.
+---
+Credit: https://github.com/iam-veeramalla/go-web-app-devops
+
