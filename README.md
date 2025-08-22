@@ -87,7 +87,8 @@ helm create go-web-app
 ---
 
 ## 6. ArgoCD AppProject
-
+- appProject (`appProject.yaml`)
+- application (`application.yaml`) (inside ArgoCD)
 ---
 
 ## 7. Debugging and Verification
