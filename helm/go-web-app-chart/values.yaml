@@ -1,9 +1,9 @@
 replicaCount: 1
 
 image:
-  repository: 949939/go-web-app
+  repository: m949939/go-web-app
   pullPolicy: IfNotPresent
-  tag: "v1"
+  tag: "latest"
 
 ingress:
   enabled: false
